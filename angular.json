@@ -11,7 +11,8 @@
           "inlineStyle": true,
           "style": "scss",
           "skipTests": true,
-          "standalone": false
+          "standalone": false,
+          "displayBlock": true
         },
         "@schematics/angular:class": {
           "skipTests": true
@@ -57,7 +58,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },

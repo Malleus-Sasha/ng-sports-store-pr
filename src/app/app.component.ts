@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+    <div class="bg-success pa-1 text-xs-center">
+      This is SportsStore
+    </div>
     <h1>Welcome to {{title}}!</h1>
 
     <router-outlet />
@@ -10,5 +13,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'ng-sports-store-pr';
+  title = 'ng-sports-store-pr1';
 }
