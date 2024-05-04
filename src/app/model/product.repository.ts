@@ -9,11 +9,9 @@ export class ProductRepository {
 
   constructor(private dataSource: StaticDataSource) {
     dataSource.getProducts().subscribe((data) => {
-      console.log('PrRep: ', data);
       this.products = data;
       this.categories = data.map(p => p.category)
         .filter((c, index, array) => array.indexOf(c) === index).sort() as string[];
-      console.log('CtRep:', this.categories);
     })
   }
 

@@ -20,6 +20,7 @@ export class CartService {
     } else {
       this.lines.push(new CartLine(product, quantity))
     }
+    this.recalculate();
   }
 
   updateQuantity(product: Product, quantity: number) {
