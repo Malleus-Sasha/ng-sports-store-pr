@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `   
-    <app-store />
-
+  template: `
     <router-outlet />
   `,
   styles: []

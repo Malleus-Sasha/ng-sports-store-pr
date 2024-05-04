@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreComponent } from './store/store/store.component';
 import { StoreModule } from './store/store/store.module';
-import { CounterOfDirective } from './directives/counter-of.directive';
-import { CartSummaryComponent } from './store/cart-summary/cart-summary.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,
