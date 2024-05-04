@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreComponent } from './store/store/store.component';
+import { StoreModule } from './store/store/store.module';
+import { CounterOfDirective } from './directives/counter-of.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div class="bg-success pa-1 text-xs-center">
-      This is SportsStore
-    </div>
-    <h1>Welcome to {{title}}!</h1>
+  template: `   
+    <app-store />
 
     <router-outlet />
   `,
