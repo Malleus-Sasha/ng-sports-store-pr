@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductRepository } from '../../model/product.repository';
 import { Product } from '../../model/product.model';
 import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -20,6 +21,7 @@ export class StoreComponent {
   constructor(
     private repository: ProductRepository,
     private cartService: CartService,
+    private router: Router,
   ) {}
 
   get products(): Product[] {
@@ -57,5 +59,6 @@ export class StoreComponent {
 
   addProductToCart(product: Product) {
     this.cartService.addLine(product);
+    this.router.navigateByUrl('/cart');
   }
 } 
