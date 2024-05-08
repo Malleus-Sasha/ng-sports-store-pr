@@ -9,8 +9,9 @@ export const storeFirstGuard: CanActivateFn = (route, state) => {
   if (firstNavigation) {
     firstNavigation = false;
     if (route.component != StoreComponent) {
-      router.navigateByUrl("/");
-      return false;
+      console.log('firstNavigation: ', firstNavigation);
+      // router.navigateByUrl("/");
+      // return false;
     }
   }
   return true;

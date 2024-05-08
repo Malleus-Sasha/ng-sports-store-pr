@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-detail',
-  template: `
-    <div><h3 class="bg-info p-a-1">Cart Detail Component</h3></div>
-  `,
+  templateUrl: 'cart-detail.component.html',
   styles: `
     :host {
       display: block;
@@ -12,5 +11,5 @@ import { Component } from '@angular/core';
   `
 })
 export class CartDetailComponent {
-
+  constructor(public cart: CartService) {}
 }
