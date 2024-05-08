@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OrderRepository } from '../../model/order.repository';
 import { Order } from '../../model/order.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -22,7 +23,7 @@ export class CheckoutComponent {
     public order: Order,
   ) {}
 
-  submitOrder(form: any) {
+  submitOrder(form: NgForm) {
     this.submitted = true;
     if (form.valid) {
       this.repository.saveOrder(this.order).subscribe((order) => {
