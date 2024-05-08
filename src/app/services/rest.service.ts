@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Product } from '../model/product.model';
 import { Order } from '../model/order.model';
 
@@ -12,6 +12,7 @@ const PORT = 3500;
 )
 export class RestService {
   baseUrl = '';
+  auth_token = '';
 
   constructor(
     private http: HttpClient
@@ -25,5 +26,28 @@ export class RestService {
 
   saveOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(`${this.baseUrl}orders`, order);
+  }
+
+  authenticate(user: string, pass: string): Observable<boolean> {
+    return this.http.post<{success: boolean, token: string}>(
+      this.baseUrl + 'login', 
+      {
+        name: user,
+        password: pass,
+      }
+    ).pipe(
+      map((res) => {
+        this.auth_token = res.success ? res.token : '';
+        return res.success;
+      })
+    )
+  }
+
+  private getOptions() {
+    return {
+      headers: new HttpHeaders({
+        "Authorization": `Bearer<${this.auth_token}>`
+      })
+    }
   }
 }

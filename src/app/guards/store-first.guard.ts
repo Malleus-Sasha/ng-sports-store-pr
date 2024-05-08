@@ -1,18 +1,22 @@
-import { CanActivateFn, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
 import { StoreComponent } from '../store/store/store.component';
-import { inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
-export const storeFirstGuard: CanActivateFn = (route, state) => {
-  const router = inject(Router);
-  let firstNavigation = true;
+@Injectable()
+export class StoreFirstGuard implements CanActivate {
+  firstNavigation = true;
 
-  if (firstNavigation) {
-    firstNavigation = false;
-    if (route.component != StoreComponent) {
-      console.log('firstNavigation: ', firstNavigation);
-      // router.navigateByUrl("/");
-      // return false;
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): MaybeAsync<GuardResult> {
+    if (this.firstNavigation) {
+      this.firstNavigation = false;
+      if (route.component != StoreComponent) {
+        console.log('firstNavigation: ', this.firstNavigation);
+        // router.navigateByUrl("/");
+        return false;
+      }
     }
+    return true;
   }
-  return true;
-};
+}
