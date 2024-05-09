@@ -5,13 +5,17 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-
+import { ProductTableComponent } from './product-table/product-table.component';
+import { ProductEditorComponent } from './product-editor/product-editor.component';
+import { OrderTableComponent } from './order-table/order-table.component';
 
 @NgModule({
   declarations: [
+    AuthComponent,
     AdminComponent,
-    AuthComponent
+    OrderTableComponent,
+    ProductTableComponent,
+    ProductEditorComponent,
   ],
   imports: [
     CommonModule,

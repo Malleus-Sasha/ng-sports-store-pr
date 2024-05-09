@@ -13,8 +13,8 @@ import { AuthService } from '../../services/auth.service';
   `
 })
 export class AuthComponent {
-  username: string = '';
-  password: string = '';
+  username: string = 'admin';
+  password: string = 'secret';
   errorMessage: string = '';
 
   constructor(
