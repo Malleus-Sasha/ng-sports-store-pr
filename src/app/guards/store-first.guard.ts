@@ -5,6 +5,7 @@ import { Injectable, inject } from '@angular/core';
 @Injectable()
 export class StoreFirstGuard implements CanActivate {
   firstNavigation = true;
+  router = inject(Router);
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -13,7 +14,7 @@ export class StoreFirstGuard implements CanActivate {
       this.firstNavigation = false;
       if (route.component != StoreComponent) {
         console.log('firstNavigation: ', this.firstNavigation);
-        // router.navigateByUrl("/");
+        this.router.navigateByUrl("/");
         return false;
       }
     }

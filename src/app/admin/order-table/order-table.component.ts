@@ -17,7 +17,6 @@ export class OrderTableComponent {
   constructor(private repository: OrderRepository) {}
 
   getOrders(): Order[] {
-    console.log(':ORDER:TABLE: ', this.repository.getOrders());
     return this.repository
       .getOrders()
       .filter((o) => this.includeShipped || !o.shipped);
@@ -30,5 +29,10 @@ export class OrderTableComponent {
 
   delete(id: number | null) {
     if(id) this.repository.deleteOrder(id);
+  }
+
+  // Test
+  upOrders() {
+    console.log(':UP:ORDERS:', this.repository.getOrders());
   }
 }

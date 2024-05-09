@@ -23,7 +23,6 @@ export class ProductEditorComponent {
     activeRoute: ActivatedRoute
   ) {
     this.editing = activeRoute.snapshot.params["mode"] == "edit";
-    console.log(':SHNAP:', activeRoute.snapshot);
     if (this.editing) {
       Object.assign(
         this.product,

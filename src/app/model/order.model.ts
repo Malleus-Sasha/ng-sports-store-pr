@@ -5,20 +5,23 @@ import { CartService } from "../services/cart.service";
 export class Order {
   public id: number | null = null;
   public name = 'N1';
-  public address: string | null = null;
-  public city: string | null = null;
-  public state: string | null = null;
-  public zip: string | null = null;
-  public country!: string | null;
+  public address = 'Add1';
+  public city = 'C1';
+  public state = 'St1';
+  public zip = '112214';
+  public country = 'Uk1';
   public shipped: boolean = false;
 
   constructor(public cart: CartService) {}
 
   clear() {
     this.id = null;
-    this.name = ''
-    this.address = this.city = null;
-    this.state = this.zip = this.country = null;
+    this.name = 'N2'
+    this.address = 'Add2'
+    this.city = 'C2';
+    this.state = 'St2'
+    this.zip = '2233'
+    this.country = 'Uk2';
     this.shipped = false;
     this.cart.clear();
   }
