@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard] },
   { path: 'pageNotFound', component: NotFoundPageComponent },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: '', redirectTo: 'store', pathMatch: 'full' },
+  // { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: '**', redirectTo: 'pageNotFound'},
 ];
 

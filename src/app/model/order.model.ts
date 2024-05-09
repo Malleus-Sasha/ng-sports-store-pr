@@ -4,7 +4,7 @@ import { CartService } from "../services/cart.service";
 @Injectable()
 export class Order {
   public id: number | null = null;
-  public name: string | null = null;
+  public name = 'N1';
   public address: string | null = null;
   public city: string | null = null;
   public state: string | null = null;
@@ -16,7 +16,8 @@ export class Order {
 
   clear() {
     this.id = null;
-    this.name = this.address = this.city = null;
+    this.name = ''
+    this.address = this.city = null;
     this.state = this.zip = this.country = null;
     this.shipped = false;
     this.cart.clear();
