@@ -17,15 +17,7 @@ import { Component } from '@angular/core';
       </div>
     </div>
   </nav>
-
-    <!-- <div class="nav-bar">
-      <a routerLink="/store"><i class="fa fa-arrow-circle-left"></i>store</a>
-      <a routerLink="first-exmpl">exmpl-first</a>
-    </div>
-    <p>
-      exmpls works!
-    </p> -->
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
   `,
   styles: `
     :host {
