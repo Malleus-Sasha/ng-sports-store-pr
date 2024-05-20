@@ -6,12 +6,15 @@ import { CheckoutComponent } from './store/checkout/checkout.component';
 import { StoreComponent } from './store/store/store.component';
 import { StoreFirstGuard } from './guards/store-first.guard';
 
+// ng g m modules/exmpls --routing --route exmpls --module app
+
 const routes: Routes = [
   { path: 'store', component: StoreComponent, canActivate: [StoreFirstGuard] },
   { path: 'cart', component: CartDetailComponent, canActivate: [StoreFirstGuard] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard] },
   { path: 'pageNotFound', component: NotFoundPageComponent },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'exmpls', loadChildren: () => import('./modules/exmpls/exmpls.module').then(m => m.ExmplsModule) },
   // { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: '**', redirectTo: 'pageNotFound'},
 ];
