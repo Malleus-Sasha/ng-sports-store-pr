@@ -16,7 +16,7 @@ export class ProductDataService {
 
   getProducts(): Observable<ProductData> {
     return of(ProductsData).pipe(
-      // delay(1000)
+      delay(1000)
     );
   }
 }

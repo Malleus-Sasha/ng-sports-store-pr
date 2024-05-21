@@ -4,16 +4,22 @@ import { CommonModule } from '@angular/common';
 import { ExmplsRoutingModule } from './exmpls-routing.module';
 import { ExmplsComponent } from './exmpls.component';
 import { FirstExmplComponent } from './first-exmpl/first-exmpl.component';
+import { CategoryComponent } from './first-exmpl/category/category.component';
+import { PaAttrDirective } from '../../directives/pa-attr.directive';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     ExmplsComponent,
-    FirstExmplComponent
+    FirstExmplComponent,
+    CategoryComponent,
+    PaAttrDirective,
   ],
   imports: [
     CommonModule,
-    ExmplsRoutingModule
+    ExmplsRoutingModule,
+    FormsModule,
   ]
 })
 export class ExmplsModule { }

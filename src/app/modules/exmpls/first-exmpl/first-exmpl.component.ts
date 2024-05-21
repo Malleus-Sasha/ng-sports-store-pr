@@ -9,11 +9,14 @@ import { Product } from '../../../model/product.model';
     :host {
       display: block;
     }
+    input.ng-dirty.ng-invalid { border: 2px solid #ff0000 }
+    input.ng-dirty.ng-valid { border: 2px solid #6bc502 }
   `
 })
 export class FirstExmplComponent implements OnInit {
   products: Product[] = [];
-  selectedProduct = '(None)';
+  selectedProduct: string = '(None)';
+  showTable = true;
 
   constructor(
     public productsService: ProductsService,
@@ -36,5 +39,9 @@ export class FirstExmplComponent implements OnInit {
 
   getTrakBy(i: number, d: Product) {
     return d.name;
+  }
+
+  getCategories() {
+
   }
 }

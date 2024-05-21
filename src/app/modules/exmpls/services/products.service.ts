@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { ProductDataService } from '../data/product-data.service';
 import { map } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { map } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
+  productsS = signal([]);
 
   constructor(
     private dataService: ProductDataService,
