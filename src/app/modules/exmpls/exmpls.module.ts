@@ -7,6 +7,7 @@ import { FirstExmplComponent } from './first-exmpl/first-exmpl.component';
 import { CategoryComponent } from './first-exmpl/category/category.component';
 import { PaAttrDirective } from '../../directives/pa-attr.directive';
 import { FormsModule } from '@angular/forms';
+import { AppIfDirective } from '../../directives/app-if.directive';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     FirstExmplComponent,
     CategoryComponent,
     PaAttrDirective,
+    AppIfDirective,
   ],
   imports: [
     CommonModule,

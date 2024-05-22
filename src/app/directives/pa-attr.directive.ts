@@ -50,11 +50,12 @@ export class PaAttrDirective implements OnChanges, OnInit {
   }
 
   ngOnInit(): void {
-    console.log(":PaAttr:OnInit:");
+    // console.log(":PaAttr:OnInit:");
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(":Changes:", changes);
+    // console.log(":Changes:", changes);
+
     // let change = changes["bgClass"];
     // let classList = this.element.nativeElement.classList;
     // if (!change.isFirstChange() && classList.contains(change.previousValue)) {

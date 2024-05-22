@@ -16,34 +16,37 @@
           <input type="checkbox" checked [(ngModel)]="showTable">
           Show Table
         </label>
+        <ng-template [appIf]="showTable">
+          <b> : SHOW TEMPLATE</b>
+        </ng-template>
       </div>
 
       <div class="form-group" appPaAttr="bg-warning">
         <label><input type="text" #productInput (input)="false"></label>
       </div>
 
-      <template *ngIf="true">
-        SHOW TEMPLATE
-      </template>
-      <div *ngFor="let product of products; let i = index; trackBy: getTrakBy"
-       class="card m-1 p-1 bg-light">
-        <h4 [class.bg-info]="getSeleted(product)">
-          <span (mouseover)="productInput.value=product?.name || ''">
-            {{ i + 1 }}
-            {{product.name}}
-          </span>
-          <span class="badge badge-pill text-bg-primary float-end">
-            {{ product.price | currency:"USD":"symbol":"2.2-2" }}
-          </span>
-        </h4>
-        <div class="card-text bg-white p-1" 
-          appPaAttr="bg-warning"
-          [pa-product]="product" 
-          (pa-category)="selectedProduct=$event">
-          {{product.description}}
-          <button  class="btn btn-success btn-sm float-end">Add To Cart</button>
+      <div *appIf="showTable">
+        <div *ngFor="let product of products; let i = index; trackBy: getTrakBy"
+          class="card m-1 p-1 bg-light">
+          <h4 [class.bg-info]="getSeleted(product)">
+            <span (mouseover)="productInput.value=product?.name || ''">
+              {{ i + 1 }}
+              {{product.name}}
+            </span>
+            <span class="badge badge-pill text-bg-primary float-end">
+              {{ product.price | currency:"USD":"symbol":"2.2-2" }}
+            </span>
+          </h4>
+          <div class="card-text bg-white p-1" 
+            appPaAttr="bg-warning"
+            [pa-product]="product" 
+            (pa-category)="selectedProduct=$event">
+            {{product.description}}
+            <button  class="btn btn-success btn-sm float-end">Add To Cart</button>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
