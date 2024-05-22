@@ -6,8 +6,10 @@ import { ExmplsComponent } from './exmpls.component';
 import { FirstExmplComponent } from './first-exmpl/first-exmpl.component';
 import { CategoryComponent } from './first-exmpl/category/category.component';
 import { PaAttrDirective } from '../../directives/pa-attr.directive';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppIfDirective } from '../../directives/app-if.directive';
+import { ProductsComponent } from './first-exmpl/products/products.component';
+import { ProductFormComponent } from './first-exmpl/product-form/product-form.component';
 
 
 @NgModule({
@@ -17,11 +19,14 @@ import { AppIfDirective } from '../../directives/app-if.directive';
     CategoryComponent,
     PaAttrDirective,
     AppIfDirective,
+    ProductsComponent,
+    ProductFormComponent,
   ],
   imports: [
     CommonModule,
     ExmplsRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ExmplsModule { }

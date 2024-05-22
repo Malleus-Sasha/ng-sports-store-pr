@@ -1,0 +1,27 @@
+<form novalidate [formGroup]="form" (ngSubmit)="submitForm(form)">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" formControlName="name" />
+  </div>
+  <div class="form-group">
+    <label>Category</label>
+    <input class="form-control" name="category" formControlName="category" />
+    <ul class="text-danger list-unstyled"
+      *ngIf="form.get('category')?.dirty && form.get('category')?.invalid">
+      <li *ngFor="let error of getValidationMessages('category', form.get('category'))">
+        {{ error }}
+      </li>
+    </ul>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" name="price" formControlName="price" />
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+    Create
+  </button>
+</form>
+<pre>
+  {{ form.errors | json }}
+  {{ form.get('category')?.errors | json }}
+</pre>
