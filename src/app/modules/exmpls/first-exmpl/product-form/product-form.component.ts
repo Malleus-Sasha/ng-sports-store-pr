@@ -11,6 +11,7 @@ import { LimitValidator } from "../../../../validators/limit.formvalidator";
     }
     input.ng-dirty.ng-invalid { border: 2px solid #ff0000 }
     input.ng-dirty.ng-valid { border: 2px solid #6bc502 }
+    .footer { background-color: lightcoral; margin: 10px 0; padding: 5px; text-align: right; }
   `,
 })
 export class ProductFormComponent {

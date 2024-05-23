@@ -17,9 +17,13 @@
     <label>Price</label>
     <input class="form-control" name="price" formControlName="price" />
   </div>
-  <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
-    Create
-  </button>
+  
+  <div class="footer">
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+      Create
+    </button>
+  </div>
+  
 </form>
 <pre>
   {{ form.errors | json }}

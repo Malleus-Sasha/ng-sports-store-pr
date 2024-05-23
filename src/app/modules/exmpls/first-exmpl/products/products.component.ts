@@ -1,6 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, OnChanges, OnInit, QueryList, SimpleChanges, ViewChildren } from "@angular/core";
 import { Product } from "../../../../model/product.model";
 import { ProductsService } from "../../services/products.service";
+import { PaAttrDirective } from "../../../../directives/pa-attr.directive";
+import { CellColorDirective } from "../../../../directives/cell-color.directive";
 
 @Component({
   selector: "app-products",
@@ -11,16 +13,35 @@ import { ProductsService } from "../../services/products.service";
     }
   `,
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit, OnChanges {
   products: Product[] = [];
   selectedProduct: string = "(None)";
   showTable = true;
   loading = true;
+  // appPaAttr
+  @ViewChildren(CellColorDirective) viewChildren!: QueryList<CellColorDirective>;
 
   constructor(public productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.viewChildren.changes.subscribe(() => {
+      this.updateViewChildren();
+    });
+    this.updateViewChildren();
+  }
+
+  private updateViewChildren() {
+    console.log(':CHILDREN:', this.viewChildren);
+
+    setTimeout(() => {
+      this.viewChildren.forEach((child, index) => {
+        child.setColor(index % 2 ? true : false);
+      })
+    }, 200);
   }
 
   getProducts() {
@@ -29,6 +50,7 @@ export class ProductsComponent {
       this.products = d;
       this.loading = false;
       console.log(":D: ", d);
+      this.updateViewChildren();
     });
   }
 

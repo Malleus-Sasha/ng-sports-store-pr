@@ -12,5 +12,5 @@ import { Product } from '../../../model/product.model';
   `
 })
 export class FirstExmplComponent {
-  showTable = true;
+
 }

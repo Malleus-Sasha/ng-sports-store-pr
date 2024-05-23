@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppIfDirective } from '../../directives/app-if.directive';
 import { ProductsComponent } from './first-exmpl/products/products.component';
 import { ProductFormComponent } from './first-exmpl/product-form/product-form.component';
+import { ToggleViewComponent } from './first-exmpl/toggle-view/toggle-view.component';
+import { CellColorDirective } from '../../directives/cell-color.directive';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { ProductFormComponent } from './first-exmpl/product-form/product-form.co
     AppIfDirective,
     ProductsComponent,
     ProductFormComponent,
+    ToggleViewComponent,
+    CellColorDirective,
   ],
   imports: [
     CommonModule,
