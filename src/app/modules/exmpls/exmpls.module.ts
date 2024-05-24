@@ -14,6 +14,8 @@ import { ToggleViewComponent } from './first-exmpl/toggle-view/toggle-view.compo
 import { CellColorDirective } from '../../directives/cell-color.directive';
 import { AddTaxPipe } from '../../pipes/add-tax.pipe';
 import { CategoryFilterPipe } from '../../pipes/category-filter.pipe';
+import { DiscountDisplayComponent } from './first-exmpl/discount-display/discount-display.component';
+import { DiscountEditorComponent } from './first-exmpl/discount-editor/discount-editor.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { CategoryFilterPipe } from '../../pipes/category-filter.pipe';
     CellColorDirective,
     AddTaxPipe,
     CategoryFilterPipe,
+    DiscountDisplayComponent,
+    DiscountEditorComponent,
   ],
   imports: [
     CommonModule,

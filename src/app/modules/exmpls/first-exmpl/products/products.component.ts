@@ -3,6 +3,7 @@ import { Product } from "../../../../model/product.model";
 import { ProductsService } from "../../services/products.service";
 import { PaAttrDirective } from "../../../../directives/pa-attr.directive";
 import { CellColorDirective } from "../../../../directives/cell-color.directive";
+import { DiscountService } from "services/discount.service";
 
 @Component({
   selector: "app-products",
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   loading = true;
   categoryFilter = '';
   // appPaAttr
+  discounter = new DiscountService();
   @ViewChildren(CellColorDirective) viewChildren!: QueryList<CellColorDirective>;
 
 

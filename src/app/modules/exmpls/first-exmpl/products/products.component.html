@@ -25,6 +25,9 @@
   </label>
 </div>
 
+<app-discount-editor [discounter]="discounter"></app-discount-editor>
+<app-discount-display [discounter]="discounter"></app-discount-display>
+
 <div
   *ngFor="let product of products | categoryFilter: categoryFilter; let i = index; trackBy: getTrakBy"
   class="card m-1 p-1 bg-light">

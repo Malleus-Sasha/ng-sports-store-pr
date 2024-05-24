@@ -1,0 +1,21 @@
+import { Component, Input } from '@angular/core';
+import { DiscountService } from 'services/discount.service';
+
+@Component({
+  selector: 'app-discount-display',
+  template: `
+    <div class="bg-infp p-1">
+      The discount is {{ discounter.discount }}
+    </div>
+  `,
+  styles: `
+    :host {
+      display: block;
+    }
+  `
+})
+export class DiscountDisplayComponent {
+  
+  @Input() discounter!: DiscountService;
+
+}
