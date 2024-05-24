@@ -1,14 +1,39 @@
 <div *ngIf="loading" class="loader"></div>
 
+<div>
+  <label>
+    Tax Rate:
+    <select #tax [value]="taxRate || 0" (change)="taxRate=tax.value">
+      <option value="0">None</option>
+      <option value="10">{{  0.1 | percent }}</option>
+      <option value="20">20%</option>
+      <option value="50">50%</option>
+      <option value="150">{{ 1.5 | percent}}</option>
+    </select>
+  </label>
+</div>
+
+<div>
+  <label>
+    Category Filter:
+    <select [(ngModel)]="categoryFilter">
+      <option selected value="">None</option>
+      <option>Watersports</option>
+      <option>Soccer</option>
+      <option>Chess</option>
+    </select>
+  </label>
+</div>
+
 <div
-  *ngFor="let product of products; let i = index; trackBy: getTrakBy"
+  *ngFor="let product of products | categoryFilter: categoryFilter; let i = index; trackBy: getTrakBy"
   class="card m-1 p-1 bg-light">
   <h4 [class.bg-info]="getSeleted(product)">
     <span>
       {{ i + 1 }} {{product.name}}
     </span>
     <span class="badge badge-pill text-bg-primary float-end">
-      {{ product.price | currency:"USD":"symbol":"2.2-2" }}
+      {{ product.price | addTax:(taxRate) | currency:"USD":"symbol":"3.2-2" }}
     </span>
   </h4>
   <div
@@ -18,5 +43,6 @@
     (pa-category)="selectedProduct=$event">
     {{product.description}}
     <button class="btn btn-success btn-sm float-end">Add To Cart</button>
+    <button class="btn btn-danger btn-sm float-end" (click)="deleteProduct(product.id)">Delete</button>
   </div>
 </div>

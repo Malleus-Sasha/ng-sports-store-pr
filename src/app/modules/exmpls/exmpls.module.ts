@@ -12,6 +12,8 @@ import { ProductsComponent } from './first-exmpl/products/products.component';
 import { ProductFormComponent } from './first-exmpl/product-form/product-form.component';
 import { ToggleViewComponent } from './first-exmpl/toggle-view/toggle-view.component';
 import { CellColorDirective } from '../../directives/cell-color.directive';
+import { AddTaxPipe } from '../../pipes/add-tax.pipe';
+import { CategoryFilterPipe } from '../../pipes/category-filter.pipe';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { CellColorDirective } from '../../directives/cell-color.directive';
     ProductFormComponent,
     ToggleViewComponent,
     CellColorDirective,
+    AddTaxPipe,
+    CategoryFilterPipe,
   ],
   imports: [
     CommonModule,

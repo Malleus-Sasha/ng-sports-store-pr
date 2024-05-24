@@ -14,12 +14,15 @@ import { CellColorDirective } from "../../../../directives/cell-color.directive"
   `,
 })
 export class ProductsComponent implements OnInit, OnChanges {
+  taxRate: any = 0;
   products: Product[] = [];
   selectedProduct: string = "(None)";
   showTable = true;
   loading = true;
+  categoryFilter = '';
   // appPaAttr
   @ViewChildren(CellColorDirective) viewChildren!: QueryList<CellColorDirective>;
+
 
   constructor(public productsService: ProductsService) {}
 
@@ -35,13 +38,13 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   private updateViewChildren() {
-    console.log(':CHILDREN:', this.viewChildren);
+    // console.log(':CHILDREN:', this.viewChildren);
 
-    setTimeout(() => {
-      this.viewChildren.forEach((child, index) => {
-        child.setColor(index % 2 ? true : false);
-      })
-    }, 200);
+    // setTimeout(() => {
+    //   this.viewChildren.forEach((child, index) => {
+    //     child.setColor(index % 2 ? true : false);
+    //   })
+    // }, 200);
   }
 
   getProducts() {
@@ -63,4 +66,8 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   getCategories() {}
+
+  deleteProduct(arg0: any) {
+    console.log('Method not implemented.');
+  }
 }

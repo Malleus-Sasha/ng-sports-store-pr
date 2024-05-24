@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from './store/store/store.module';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
-import { AppIfDirective } from './directives/app-if.directive';
 
 @NgModule({
   declarations: [
