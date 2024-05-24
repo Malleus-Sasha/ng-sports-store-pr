@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+  providedIn: 'root'
+})
 export class DiscountService {
   private discountValue: number = 10;
 

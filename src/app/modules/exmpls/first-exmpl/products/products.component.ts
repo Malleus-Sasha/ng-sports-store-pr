@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   loading = true;
   categoryFilter = '';
   // appPaAttr
-  discounter = new DiscountService();
+  // discounter = new DiscountService();
   @ViewChildren(CellColorDirective) viewChildren!: QueryList<CellColorDirective>;
 
 

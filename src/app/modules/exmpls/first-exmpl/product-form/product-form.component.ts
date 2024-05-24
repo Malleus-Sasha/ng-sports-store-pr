@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { LimitValidator } from "../../../../validators/limit.formvalidator";
+import { ProductsService } from "../../services/products.service";
 
 @Component({
   selector: "app-product-form",
@@ -15,18 +16,22 @@ import { LimitValidator } from "../../../../validators/limit.formvalidator";
   `,
 })
 export class ProductFormComponent {
-  @Output() product = new EventEmitter();
+  // @Output() product = new EventEmitter();
   form!: FormGroup;
   formSubmitted = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private productsService: ProductsService,
+  ) {
     this.form = this.initForm();
   }
 
   submitForm(form: FormGroup) {
     // console.dir(form.controls);
     console.log(":FORM:", form.getRawValue());
-    this.product.emit(form.getRawValue());
+    // this.product.emit(form.getRawValue());
+    this.productsService.addProduct();
   }
 
   initForm() {

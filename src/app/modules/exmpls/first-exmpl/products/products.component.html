@@ -25,8 +25,8 @@
   </label>
 </div>
 
-<app-discount-editor [discounter]="discounter"></app-discount-editor>
-<app-discount-display [discounter]="discounter"></app-discount-display>
+<app-discount-editor></app-discount-editor>
+<app-discount-display></app-discount-display>
 
 <div
   *ngFor="let product of products | categoryFilter: categoryFilter; let i = index; trackBy: getTrakBy"
@@ -36,7 +36,7 @@
       {{ i + 1 }} {{product.name}}
     </span>
     <span class="badge badge-pill text-bg-primary float-end">
-      {{ product.price | addTax:(taxRate) | currency:"USD":"symbol":"3.2-2" }}
+      {{ product.price | addTax:(taxRate) | discount | currency:"USD":"symbol":"3.2-2" }}
     </span>
   </h4>
   <div

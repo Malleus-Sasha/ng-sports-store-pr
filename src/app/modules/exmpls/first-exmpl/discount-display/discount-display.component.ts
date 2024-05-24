@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { DiscountService } from 'services/discount.service';
 
 @Component({
@@ -16,6 +16,6 @@ import { DiscountService } from 'services/discount.service';
 })
 export class DiscountDisplayComponent {
   
-  @Input() discounter!: DiscountService;
+  discounter = inject(DiscountService);
 
 }

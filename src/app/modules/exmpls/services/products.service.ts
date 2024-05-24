@@ -16,4 +16,8 @@ export class ProductsService {
     return this.dataService.getProducts().pipe(map((d) => d.products));
   }
 
+  addProduct() {
+    // this.dataService.add
+  }
+
 }
