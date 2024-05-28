@@ -8,10 +8,10 @@ export class Message {
 @Component({
   selector: 'app-message',
   template: `
-    <div 
+    <div  *ngIf="lastMessage"
      class="bg-info text-white p-2 text-center" 
      [class.bg-danger]="lastMessage.error">
-        MESS: <h6 *ngIf="lastMessage">{{lastMessage.text}}</h6> 
+        <h6>{{lastMessage.text}}</h6> 
     </div>
   `,
   styles: `

@@ -19,6 +19,7 @@ import { DiscountEditorComponent } from './first-exmpl/discount-editor/discount-
 import { DiscountService } from 'services/discount.service';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { MessageModule } from '../message/message.module';
+import { StateModelService } from './model/state.model.service';
 
 
 @NgModule({
@@ -45,8 +46,9 @@ import { MessageModule } from '../message/message.module';
     ReactiveFormsModule,
     MessageModule,
   ],
-  // providers: {
-    // DiscountService
-  // }
+  providers: [
+    // DiscountService,
+    StateModelService,
+  ]
 })
 export class ExmplsModule { }

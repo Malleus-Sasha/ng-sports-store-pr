@@ -12,17 +12,13 @@ export type EventModes = {
   id: number;
 }
 
-@Injectable({
- providedIn: 'root'
-})
+@Injectable(
+  // { providedIn: 'root' }
+)
 export class StateModelService {
-  // public mode: MODES;
-  // public id!: number;
   public event = new Subject<EventModes>();
 
   constructor(
-    // public mode: MODES, 
-    // public id: number,
     private message: MessageService,
   ) { 
     this.event.pipe(

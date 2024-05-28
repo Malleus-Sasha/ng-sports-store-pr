@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { LimitValidator } from "../../../../validators/limit.formvalidator";
 import { ProductsService } from "../../services/products.service";
-import { StateModelService } from "../../model/state.model.service";
+import { MODES, StateModelService } from "../../model/state.model.service";
+import { distinctUntilChanged, skipWhile } from "rxjs";
 
 @Component({
   selector: "app-product-form",
@@ -28,7 +29,10 @@ export class ProductFormComponent {
     private stateModelService: StateModelService,
   ) {
     this.form = this.initForm();
-    this.stateModelService.event.subscribe((e) => {
+    this.stateModelService.event.pipe(
+      // skipWhile((state) => state.mode == MODES.EDIT),
+      distinctUntilChanged((p, c) => p.id == c.id),
+    ).subscribe((e) => {
       console.log('<FORM>:Event: ', e);
 
       const editingProduct = this.productsService.getProduct(e.id);
