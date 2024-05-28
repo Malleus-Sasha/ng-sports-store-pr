@@ -30,7 +30,7 @@ export class LogService {
 
   logMessage(level: LogLevel, message: string) {
     if (level >= this.minimumLevel) {
-      console.log(`Message (${LogLevel[level]}): ${message}`);
+      // console.log(`Message (${LogLevel[level]}): ${message}`);
     }
   }
 }
@@ -44,7 +44,7 @@ export class SpecialLogService extends LogService {
 
   override logMessage(level: LogLevel, message: string) {
     if (level >= this.minimumLevel) {
-      console.log(`Special Message (${LogLevel[level]}): ${message}`);
+      // console.log(`Special Message (${LogLevel[level]}): ${message}`);
     }
   }
 }

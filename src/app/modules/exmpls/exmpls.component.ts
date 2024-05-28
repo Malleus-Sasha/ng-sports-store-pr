@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
               <a class="nav-link active" routerLink="first-exmpl">first-exmpl</a>
             </li>
         </ul>
+        <app-message></app-message>
       </div>
     </div>
   </nav>

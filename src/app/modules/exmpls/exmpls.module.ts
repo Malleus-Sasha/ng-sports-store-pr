@@ -18,6 +18,7 @@ import { DiscountDisplayComponent } from './first-exmpl/discount-display/discoun
 import { DiscountEditorComponent } from './first-exmpl/discount-editor/discount-editor.component';
 import { DiscountService } from 'services/discount.service';
 import { DiscountPipe } from '../../pipes/discount.pipe';
+import { MessageModule } from '../message/message.module';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { DiscountPipe } from '../../pipes/discount.pipe';
     ExmplsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MessageModule,
   ],
   // providers: {
     // DiscountService

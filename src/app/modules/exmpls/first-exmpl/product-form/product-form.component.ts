@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { LimitValidator } from "../../../../validators/limit.formvalidator";
 import { ProductsService } from "../../services/products.service";
+import { StateModelService } from "../../model/state.model.service";
 
 @Component({
   selector: "app-product-form",
@@ -19,19 +20,36 @@ export class ProductFormComponent {
   // @Output() product = new EventEmitter();
   form!: FormGroup;
   formSubmitted = false;
+  editing = false;
 
   constructor(
     private fb: FormBuilder,
     private productsService: ProductsService,
+    private stateModelService: StateModelService,
   ) {
     this.form = this.initForm();
+    this.stateModelService.event.subscribe((e) => {
+      console.log('<FORM>:Event: ', e);
+
+      const editingProduct = this.productsService.getProduct(e.id);
+      if (e.id) {
+        this.form.patchValue({
+          name: editingProduct?.name,
+          category: editingProduct?.category,
+          price: editingProduct?.price,
+          on: false,
+        })
+      }
+      this.editing = true;
+    })
+    
   }
 
   submitForm(form: FormGroup) {
     // console.dir(form.controls);
     console.log(":FORM:", form.getRawValue());
     // this.product.emit(form.getRawValue());
-    this.productsService.addProduct();
+    this.productsService.addProduct(form.getRawValue());
   }
 
   initForm() {
