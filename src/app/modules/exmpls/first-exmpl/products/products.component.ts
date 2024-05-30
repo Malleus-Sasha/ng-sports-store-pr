@@ -64,7 +64,7 @@ export class ProductsComponent implements OnInit, OnChanges {
     const d = this.productsService.getProducts().subscribe((d) => {
       this.products = d;
       this.loading = false;
-      console.log(":D: ", d);
+      // console.log(":D: ", d);
       this.updateViewChildren();
     });
   }
@@ -80,17 +80,16 @@ export class ProductsComponent implements OnInit, OnChanges {
   getCategories() {}
 
   deleteProduct(id: number) {
-    console.log("Method not implemented.");
     this.productsService.deleteProduct(id);
   }
 
   editProduct(id: number) {
     console.log('-EDIT-: ', id);
-    this.stateModelService.event.next({mode: MODES.EDIT, id})
+    // this.stateModelService.event.next({mode: MODES.EDIT, id})
   }
 
   createProduct() {
-    
+
   }
 
   addProduct(arg0: any) {

@@ -1,9 +1,16 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { LimitValidator } from "../../../../validators/limit.formvalidator";
 import { ProductsService } from "../../services/products.service";
 import { MODES, StateModelService } from "../../model/state.model.service";
 import { distinctUntilChanged, skipWhile } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-product-form",
@@ -27,13 +34,34 @@ export class ProductFormComponent {
     private fb: FormBuilder,
     private productsService: ProductsService,
     private stateModelService: StateModelService,
+    private activeRoute: ActivatedRoute,
+    private router: Router,
   ) {
+    console.log("[routed]", activeRoute.snapshot);
+    this.editing = activeRoute.snapshot.url[2]?.path == "edit";
+    const id = activeRoute.snapshot.params["id"];
+    const name = activeRoute.snapshot.params['name'];
+    const category = activeRoute.snapshot.params['category'];
+    const price = activeRoute.snapshot.params['price'];
+
     this.form = this.initForm();
+
+    // const editingProduct = this.productsService.getProduct(id);
+    if (id) {
+      this.form.patchValue({
+        name,
+        category,
+        price,
+        id,
+      });
+    }
+
+    /*
     this.stateModelService.event.pipe(
-      // skipWhile((state) => state.mode == MODES.EDIT),
+      skipWhile((state) => state.mode == MODES.EDIT),
       distinctUntilChanged((p, c) => p.id == c.id),
     ).subscribe((e) => {
-      console.log('<FORM>:Event: ', e);
+      // console.log('<FORM>:Event: ', e);
 
       const editingProduct = this.productsService.getProduct(e.id);
       if (e.id) {
@@ -46,7 +74,7 @@ export class ProductFormComponent {
       }
       this.editing = true;
     })
-    
+    */
   }
 
   submitForm(form: FormGroup) {
@@ -54,6 +82,7 @@ export class ProductFormComponent {
     console.log(":FORM:", form.getRawValue());
     // this.product.emit(form.getRawValue());
     this.productsService.saveProduct(form.getRawValue());
+    this.router.navigateByUrl('//exmpls/first-exmpl');
   }
 
   initForm() {
@@ -82,7 +111,7 @@ export class ProductFormComponent {
 
   getValidationMessages(label: string, control: AbstractControl | null) {
     let messages: string[] = [];
-    
+
     // if(!control) return [];
 
     if (control?.errors) {

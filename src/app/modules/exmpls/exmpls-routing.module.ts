@@ -12,8 +12,8 @@ const routes: Routes = [
     component: ExmplsComponent, 
     children: [
       { path: 'first-exmpl', component: FirstExmplComponent },
-      { path: 'first-exmpl/form/edit', component: ProductFormComponent },
-      { path: 'first-exmpl/form/create', component: ProductFormComponent },
+      { path: 'first-exmpl/form/:mod/:id', component: ProductFormComponent },
+      { path: 'first-exmpl/form/:mod', component: ProductFormComponent },
 
       { path: 'second-exmpl', component: SecondExmplComponent },
     ], 
