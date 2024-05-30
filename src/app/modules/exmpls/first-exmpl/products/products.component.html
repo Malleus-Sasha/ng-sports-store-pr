@@ -11,10 +11,8 @@
       <option value="150">{{ 1.5 | percent}}</option>
     </select>
   </label>
-</div>
 
-<div>
-  <label>
+    <label>
     Category Filter:
     <select [(ngModel)]="categoryFilter">
       <option selected value="">None</option>
@@ -26,7 +24,15 @@
 </div>
 
 <app-discount-editor></app-discount-editor>
-<app-discount-display></app-discount-display>
+<!-- <app-discount-display></app-discount-display> -->
+<div>
+  <button class="btn btn-primary" (click)="createProduct()" routerLink="form/create">
+    Create New Product 
+  </button>
+  <button class="btn btn-danger" (click)="deleteProduct(-1)">
+    Generate HTTP Error
+  </button>
+</div>
 
 <div
   *ngFor="let product of products | categoryFilter: categoryFilter; let i = index; trackBy: getTrakBy"
@@ -46,7 +52,7 @@
     (pa-category)="selectedProduct=$event">
     {{product.description}}
     <button class="btn btn-success btn-sm float-end" (click)="addProduct(product.id)">Add To Cart</button>
-    <button class="btn btn-warning btn-sm" (click)="editProduct(product.id)">Edit</button>
-    <button class="btn btn-danger btn-sm float-end" (click)="deleteProduct(product.id)">Delete</button>
+    <button class="btn btn-warning btn-sm" routerLink="form/edit" (click)="editProduct(product.id)">Edit</button>
+    <button class="btn btn-danger btn-sm float-end" routerLink="form/create" (click)="deleteProduct(product.id)">Delete</button>
   </div>
 </div>

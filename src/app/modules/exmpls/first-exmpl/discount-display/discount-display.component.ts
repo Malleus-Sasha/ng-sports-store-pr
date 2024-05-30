@@ -4,9 +4,9 @@ import { DiscountService } from 'services/discount.service';
 @Component({
   selector: 'app-discount-display',
   template: `
-    <div class="bg-infp p-1">
+    <span class="bg-infp p-1">
       The discount is {{ discounter.discount }}
-    </div>
+    </span>
   `,
   styles: `
     :host {

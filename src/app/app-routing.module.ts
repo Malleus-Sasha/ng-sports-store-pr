@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'exmpls', loadChildren: () => import('./modules/exmpls/exmpls.module').then(m => m.ExmplsModule) },
   // { path: '', redirectTo: 'store', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pageNotFound'},
+  // { path: '**', redirectTo: 'pageNotFound', pathMatch: 'full'},
 ];
 
 @NgModule({

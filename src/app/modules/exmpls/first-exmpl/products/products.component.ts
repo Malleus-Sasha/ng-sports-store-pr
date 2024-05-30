@@ -89,6 +89,10 @@ export class ProductsComponent implements OnInit, OnChanges {
     this.stateModelService.event.next({mode: MODES.EDIT, id})
   }
 
+  createProduct() {
+    
+  }
+
   addProduct(arg0: any) {
     throw new Error("Method not implemented.");
   }
