@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExmplsComponent } from './exmpls.component';
 import { FirstExmplComponent } from './first-exmpl/first-exmpl.component';
+import { SecondExmplComponent } from './second-exmpl/second-exmpl.component';
 
 const routes: Routes = [
   { 
@@ -9,6 +10,10 @@ const routes: Routes = [
     component: ExmplsComponent, 
     children: [
       { path: 'first-exmpl', component: FirstExmplComponent },
+      { path: 'first-exmpl/form/edit', component: FirstExmplComponent },
+      { path: 'first-exmpl/form/create', component: FirstExmplComponent },
+
+      { path: 'second-exmpl', component: SecondExmplComponent },
     ], 
 }
 ];

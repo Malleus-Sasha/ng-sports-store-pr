@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "json": "json-server data.js -m ./authMiddleware.js -p 3500 -d 1100",
-    "jsonD": "json-server -m ./authMiddleware.js  -p 3500 -d 2100"
+    "jsonD": "json-server -m ./authMiddleware.js  -p 3500 -d 2100",
+    "jsonE": "json-server data.js  -p 3500 -d 2100"
   },
   "private": true,
   "dependencies": {

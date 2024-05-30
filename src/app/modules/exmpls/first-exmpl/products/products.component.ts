@@ -79,8 +79,9 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   getCategories() {}
 
-  deleteProduct(arg0: any) {
+  deleteProduct(id: number) {
     console.log("Method not implemented.");
+    this.productsService.deleteProduct(id);
   }
 
   editProduct(id: number) {

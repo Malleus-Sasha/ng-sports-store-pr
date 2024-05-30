@@ -20,6 +20,9 @@ import { DiscountService } from 'services/discount.service';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { MessageModule } from '../message/message.module';
 import { StateModelService } from './model/state.model.service';
+import { DataRestService } from './services/rest/data.rest';
+import { ProductsService } from './services/products.service';
+import { SecondExmplComponent } from './second-exmpl/second-exmpl.component';
 
 
 @NgModule({
@@ -38,6 +41,7 @@ import { StateModelService } from './model/state.model.service';
     DiscountDisplayComponent,
     DiscountEditorComponent,
     DiscountPipe,
+    SecondExmplComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +53,9 @@ import { StateModelService } from './model/state.model.service';
   providers: [
     // DiscountService,
     StateModelService,
+    ProductsService,
+    DataRestService,
+    { provide: 'REST_URL', useValue: `//${location.hostname}:3500/products`}
   ]
 })
 export class ExmplsModule { }

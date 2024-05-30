@@ -33,7 +33,7 @@
   class="card m-1 p-1 bg-light">
   <h4 [class.bg-info]="getSeleted(product)">
     <span>
-      {{ i + 1 }} {{product.name}}
+      {{ i + 1 }} : {{product.name}}
     </span>
     <span class="badge badge-pill text-bg-primary float-end">
       {{ product.price | addTax:(taxRate) | discount | currency:"USD":"symbol":"3.2-2" }}

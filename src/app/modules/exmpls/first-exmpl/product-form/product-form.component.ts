@@ -41,7 +41,7 @@ export class ProductFormComponent {
           name: editingProduct?.name,
           category: editingProduct?.category,
           price: editingProduct?.price,
-          on: false,
+          id: e.id,
         })
       }
       this.editing = true;
@@ -53,7 +53,7 @@ export class ProductFormComponent {
     // console.dir(form.controls);
     console.log(":FORM:", form.getRawValue());
     // this.product.emit(form.getRawValue());
-    this.productsService.addProduct(form.getRawValue());
+    this.productsService.saveProduct(form.getRawValue());
   }
 
   initForm() {
@@ -65,17 +65,18 @@ export class ProductFormComponent {
           Validators.required,
           Validators.pattern("^[A-Za-z ]+$"),
           Validators.minLength(3),
-          Validators.maxLength(10),
+          Validators.maxLength(11),
         ],
       ],
       price: [
         "",
         [
           Validators.required,
-          LimitValidator.Limit(100),
+          LimitValidator.Limit(300),
           Validators.pattern("^[0-9.]+$"),
         ],
       ],
+      id: 0,
     });
   }
 

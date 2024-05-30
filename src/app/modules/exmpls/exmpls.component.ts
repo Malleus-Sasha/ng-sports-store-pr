@@ -13,6 +13,9 @@ import { Component } from '@angular/core';
             <li class="nav-item">
               <a class="nav-link active" routerLink="first-exmpl">first-exmpl</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="second-exmpl">second-exmpl</a>
+            </li>
         </ul>
         <app-message></app-message>
       </div>
