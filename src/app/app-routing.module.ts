@@ -15,7 +15,12 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard] },
   { path: 'pageNotFound', component: NotFoundPageComponent },
   // { path: 'pageNotFound', component: NotFoundComponent },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { 
+    // outlet: 'center',
+    path: 'admin',
+    // canMatch: [LoadGuard],
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) 
+  },
   { path: 'exmpls', loadChildren: () => import('./modules/exmpls/exmpls.module').then(m => m.ExmplsModule) },
   // { path: '', redirectTo: 'store', pathMatch: 'full' },
   { path: '**', redirectTo: 'pageNotFound'},

@@ -57,6 +57,22 @@
   </button>
 </div>
 
+<div class="col">
+  <button class="btn btn-info mx-1" routerLink="products-count">
+      Count Products
+  </button>
+  <button class="btn btn-primary mx-1" routerLink="category-count">
+      Count Categories
+  </button>
+  <button class="btn btn-secondary mx-1" routerLink="/table">
+      Count Neither
+  </button>
+
+  <div class="my-2">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
 <div
   *ngFor="let product of products | categoryFilter: categoryFilter; let i = index; trackBy: getTrakBy"
   class="card m-1 p-1 bg-light">

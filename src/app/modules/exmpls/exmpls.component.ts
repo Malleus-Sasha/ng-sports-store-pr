@@ -11,10 +11,10 @@ import { Component } from '@angular/core';
               <a class="nav-link active" routerLink="/store"><i class="fa fa-arrow-circle-left"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" routerLink="first-exmpl">first-exmpl</a>
+              <a class="nav-link active" routerLink="/exmpls/first-exmpl">first-exmpl</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" routerLink="second-exmpl">second-exmpl</a>
+              <a class="nav-link active" routerLink="/exmpls/second-exmpl">second-exmpl</a>
             </li>
         </ul>
         <app-message></app-message>

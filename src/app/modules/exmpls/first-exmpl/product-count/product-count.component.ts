@@ -24,6 +24,7 @@ export class ProductCountComponent {
   ) {
     activeRoute.pathFromRoot.forEach((route) =>
       route.params.subscribe((params) => {
+        console.log('/category-count/', params);
         if (params["category"] != null) {
           this.category = params["category"];
           this.updateCount();

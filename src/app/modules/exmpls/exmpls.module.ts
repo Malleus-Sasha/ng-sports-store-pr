@@ -25,6 +25,7 @@ import { SecondExmplComponent } from './second-exmpl/second-exmpl.component';
 import { CategoryCountComponent } from './first-exmpl/category-count/category-count.component';
 import { ProductCountComponent } from './first-exmpl/product-count/product-count.component';
 import { NotFoundComponent } from './first-exmpl/not-found/not-found.component';
+import { TermsGuard } from '../../guards/terms.guard';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { NotFoundComponent } from './first-exmpl/not-found/not-found.component';
     StateModelService,
     ProductsService,
     DataRestService,
+    TermsGuard,
     { provide: 'REST_URL', useValue: `//${location.hostname}:3500/products`}
   ]
 })
