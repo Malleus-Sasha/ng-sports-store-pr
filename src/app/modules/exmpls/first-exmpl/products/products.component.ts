@@ -12,6 +12,7 @@ import { PaAttrDirective } from "../../../../directives/pa-attr.directive";
 import { CellColorDirective } from "../../../../directives/cell-color.directive";
 import { DiscountService } from "services/discount.service";
 import { MODES, StateModelService } from "../../model/state.model.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-products",
@@ -29,6 +30,8 @@ export class ProductsComponent implements OnInit, OnChanges {
   showTable = true;
   loading = true;
   categoryFilter = "";
+  category = '';
+  categories: string[] = [];
   // appPaAttr
   // discounter = new DiscountService();
   @ViewChildren(CellColorDirective)
@@ -36,11 +39,16 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   constructor(
     public productsService: ProductsService,
+    private activeRoute: ActivatedRoute,
     private stateModelService: StateModelService
   ) {}
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((params) => {
+      this.category = params['category'] || '';
+    })
     this.getProducts();
+    this.getCategories();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -61,8 +69,8 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   getProducts() {
     this.loading = true;
-    const d = this.productsService.getProducts().subscribe((d) => {
-      this.products = d;
+    this.productsService.getProducts().subscribe((d) => {
+      this.products = d.filter((p) => this.category == '' || this.category == p.category);
       this.loading = false;
       // console.log(":D: ", d);
       this.updateViewChildren();
@@ -77,7 +85,13 @@ export class ProductsComponent implements OnInit, OnChanges {
     return d.name;
   }
 
-  getCategories() {}
+  getCategories() {
+    return this.productsService.getProducts().subscribe((data) => {
+      this.categories = data
+        .map(p => p.category)
+        .filter((category, index, array) => array.indexOf(category) == index) as string[];
+    })
+  }
 
   deleteProduct(id: number) {
     this.productsService.deleteProduct(id);

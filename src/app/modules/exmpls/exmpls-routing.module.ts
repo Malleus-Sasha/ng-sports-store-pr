@@ -13,7 +13,9 @@ const routes: Routes = [
     path: '',
     component: ExmplsComponent, 
     children: [
+      { path: 'first-exmpl/:category', component: FirstExmplComponent },
       { path: 'first-exmpl', component: FirstExmplComponent },
+      
       { path: 'first-exmpl/form/:mode/:id', component: ProductFormComponent },
       { path: 'first-exmpl/form/:mode', component: ProductFormComponent },
 

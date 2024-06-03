@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col bg-dark text-white py-2">
       <a class="navbar-brand" routerLink="store">SPORTS STORE</a>
+      | 
+      <button class="btn btn-secondary btn-block"
+        routerLink="/exmpls">
+        exmpls
+      </button>
       <app-cart-summary class="float-end" />
     </div>
   </div>
@@ -12,15 +17,13 @@
         <button class="btn btn-block btn-outline-primary" (click)="changeCategory('')">
           Home
         </button>
+
         <button *ngFor="let cat of categories" 
             class="btn btn-outline-primary btn-block"
             [class.active]="cat == selectedCategory" (click)="changeCategory(cat)">
           {{cat}}
         </button>
-        <button class="btn btn-secondary btn-block"
-          routerLink="/exmpls">
-          exmpls
-        </button>
+        
         <button class="btn btn-block btn-danger mt-5" 
           routerLink="/admin">
           Admin

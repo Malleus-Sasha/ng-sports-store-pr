@@ -1,5 +1,21 @@
 <div *ngIf="loading" class="loader"></div>
 
+<div class="col-auto">
+  <button class="btn btn-secondary btn-block" 
+      routerLink="/exmpls/first-exmpl"
+      routerLinkActive="bg-primary"
+      [routerLinkActiveOptions]="{exact: true}">
+      All
+  </button>
+  | 
+  <button *ngFor="let category of categories" 
+          class="btn btn-secondary btn-block px-3"
+          [routerLink]="['/exmpls/first-exmpl', category]" 
+          routerLinkActive="bg-primary">
+      {{category}}
+  </button>
+</div>
+
 <div>
   <label>
     Tax Rate:
