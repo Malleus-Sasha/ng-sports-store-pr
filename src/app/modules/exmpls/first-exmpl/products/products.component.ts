@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   constructor(
     public productsService: ProductsService,
-    private stateModelService: StateModelService,
+    private stateModelService: StateModelService
   ) {}
 
   ngOnInit(): void {
@@ -84,13 +84,11 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   editProduct(id: number) {
-    console.log('-EDIT-: ', id);
+    console.log("-EDIT-: ", id);
     // this.stateModelService.event.next({mode: MODES.EDIT, id})
   }
 
-  createProduct() {
-
-  }
+  createProduct() {}
 
   addProduct(arg0: any) {
     throw new Error("Method not implemented.");

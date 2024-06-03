@@ -16,13 +16,15 @@ import { AddTaxPipe } from '../../pipes/add-tax.pipe';
 import { CategoryFilterPipe } from '../../pipes/category-filter.pipe';
 import { DiscountDisplayComponent } from './first-exmpl/discount-display/discount-display.component';
 import { DiscountEditorComponent } from './first-exmpl/discount-editor/discount-editor.component';
-import { DiscountService } from 'services/discount.service';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { MessageModule } from '../message/message.module';
 import { StateModelService } from './model/state.model.service';
 import { DataRestService } from './services/rest/data.rest';
 import { ProductsService } from './services/products.service';
 import { SecondExmplComponent } from './second-exmpl/second-exmpl.component';
+import { CategoryCountComponent } from './first-exmpl/category-count/category-count.component';
+import { ProductCountComponent } from './first-exmpl/product-count/product-count.component';
+import { NotFoundComponent } from './first-exmpl/not-found/not-found.component';
 
 
 @NgModule({
@@ -42,6 +44,9 @@ import { SecondExmplComponent } from './second-exmpl/second-exmpl.component';
     DiscountEditorComponent,
     DiscountPipe,
     SecondExmplComponent,
+    ProductCountComponent,
+    CategoryCountComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,

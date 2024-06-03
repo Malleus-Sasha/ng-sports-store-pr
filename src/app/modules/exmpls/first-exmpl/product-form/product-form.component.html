@@ -1,3 +1,19 @@
+<div class="bg-primary text-white p-2" [class.bg-warning]="editing">
+  <h5>{{editing  ? "Edit" : "Create"}} Product</h5>
+  <!-- Last Event: {{ stateEvents | async | formatState }} -->
+</div>
+
+<div *ngIf="editing" class="p-2">
+  <button class="btn btn-secondary m-1"
+          [routerLink]="['/exmpls/first-exmpl','form', 'edit', productsService.getPreviousProductid(id)]">
+      Previous
+  </button>
+  <button class="btn btn-secondary"
+          [routerLink]="['/exmpls', 'first-exmpl','form', 'edit', productsService.getNextProductId(id)]">
+      Next
+  </button>
+</div>
+
 <form novalidate [formGroup]="form" (ngSubmit)="submitForm(form)">
   <div class="form-group">
     <label>Name</label>

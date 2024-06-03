@@ -32,6 +32,13 @@
   <button class="btn btn-danger" (click)="deleteProduct(-1)">
     Generate HTTP Error
   </button>
+
+  <button class="btn btn-danger" routerLink="/exmpls">
+    Generate Routing Error
+  </button>
+  <button class="btn btn-success" routerLink="/exmpls/does/not/exist">
+    Generate Routing Error
+  </button>
 </div>
 
 <div
@@ -52,8 +59,10 @@
     (pa-category)="selectedProduct=$event">
     {{product.description}}
     <button class="btn btn-success btn-sm float-end" (click)="addProduct(product.id)">Add To Cart</button>
+
+    <!-- [routerLink]="['form', 'edit', product.id, { name: product.name, category: product.category, price: product.price}]"  -->
     <button class="btn btn-warning btn-sm" 
-      [routerLink]="['form', 'edit', product.id, { name: product.name, category: product.category, price: product.price}]" 
+      [routerLink]="['form', 'edit', product.id]" 
       (click)="editProduct(product.id)">
       Edit
     </button>

@@ -26,35 +26,44 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class ProductFormComponent {
   // @Output() product = new EventEmitter();
+  id!: number;
   form!: FormGroup;
   formSubmitted = false;
   editing = false;
 
   constructor(
     private fb: FormBuilder,
-    private productsService: ProductsService,
+    public productsService: ProductsService,
     private stateModelService: StateModelService,
     private activeRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router
   ) {
-    console.log("[routed]", activeRoute.snapshot);
-    this.editing = activeRoute.snapshot.url[2]?.path == "edit";
-    const id = activeRoute.snapshot.params["id"];
-    const name = activeRoute.snapshot.params['name'];
-    const category = activeRoute.snapshot.params['category'];
-    const price = activeRoute.snapshot.params['price'];
-
     this.form = this.initForm();
+    
+    activeRoute.params.subscribe((params) => {
+      console.log("[routed]", activeRoute.snapshot);
+      console.log("[routed:params]", params);
+      this.editing = params['mode'];
+      const id = params['id'];
+      this.id = id;
 
-    // const editingProduct = this.productsService.getProduct(id);
-    if (id) {
-      this.form.patchValue({
-        name,
-        category,
-        price,
-        id,
-      });
-    }
+      if (id) {
+        const { name, category, price } = this.productsService.getProduct(id);
+        this.form.patchValue({
+          name,
+          category,
+          price,
+          id,
+        });
+      }
+    });
+
+    // this.editing = activeRoute.snapshot.url[2]?.path == "edit";
+    // const id = activeRoute.snapshot.params["id"];
+    // this.id = id;
+    // const name = activeRoute.snapshot.params['name'];
+    // const category = activeRoute.snapshot.params['category'];
+    // const price = activeRoute.snapshot.params['price'];
 
     /*
     this.stateModelService.event.pipe(
@@ -82,7 +91,7 @@ export class ProductFormComponent {
     console.log(":FORM:", form.getRawValue());
     // this.product.emit(form.getRawValue());
     this.productsService.saveProduct(form.getRawValue());
-    this.router.navigateByUrl('//exmpls/first-exmpl');
+    this.router.navigateByUrl("//exmpls/first-exmpl");
   }
 
   initForm() {

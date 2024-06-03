@@ -26,8 +26,12 @@ export class ProductsService {
     );
   }
 
-  getProduct(id: number) {
-    return this.products.find((p) => this.locator(p, id));
+  getData() {
+    return this.products;
+  }
+
+  getProduct(id: number): Product {
+    return this.products.find((p) => this.locator(p, id)) as Product;
   }
 
   saveProduct(product: Product) {
@@ -52,6 +56,23 @@ export class ProductsService {
         this.products.splice(index, 1);
       }
     });
+  }
+
+  getNextProductId(id: number): number {
+    let index = this.products.findIndex((p) => this.locator(p, id));
+    if (index > -1) {
+      return this.products[this.products.length > index + 2 ? index + 1 : 0].id;
+    } else {
+      return id || 0;
+    }
+  }
+  getPreviousProductid(id: number): number {
+    let index = this.products.findIndex((p) => this.locator(p, id));
+    if (index > -1) {
+      return this.products[index > 0 ? index - 1 : this.products.length - 1].id;
+    } else {
+      return id || 0;
+    }
   }
 
   private generateID(): number {
