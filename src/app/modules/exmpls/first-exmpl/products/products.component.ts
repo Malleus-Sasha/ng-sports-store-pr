@@ -13,6 +13,7 @@ import { CellColorDirective } from "../../../../directives/cell-color.directive"
 import { DiscountService } from "services/discount.service";
 import { MODES, StateModelService } from "../../model/state.model.service";
 import { ActivatedRoute } from "@angular/router";
+import { HighlightTrigger } from "../../../../animations/products.animations";
 
 @Component({
   selector: "app-products",
@@ -21,7 +22,9 @@ import { ActivatedRoute } from "@angular/router";
     :host {
       display: block;
     }
+    .card { position: relative }
   `,
+  animations: [HighlightTrigger],
 })
 export class ProductsComponent implements OnInit, OnChanges {
   taxRate: any = 0;
@@ -106,5 +109,12 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   addProduct(arg0: any) {
     throw new Error("Method not implemented.");
+  }
+
+  highlightCategory: string = '';
+
+  getRowState(category=''): string {
+    return this.highlightCategory == '' ? '' :
+      this.highlightCategory == category ? 'selected' : 'notselected';
   }
 }

@@ -27,7 +27,6 @@ import { ProductCountComponent } from './first-exmpl/product-count/product-count
 import { NotFoundComponent } from './first-exmpl/not-found/not-found.component';
 import { TermsGuard } from '../../guards/terms.guard';
 
-
 @NgModule({
   declarations: [
     ExmplsComponent,

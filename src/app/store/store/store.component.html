@@ -32,7 +32,20 @@
     </div>
 
     <div class="col-9 p-2">
-      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
+      <!-- <div>
+        |:
+        <label>Category</label>
+        <select [(ngModel)]="highlightCategory" class="form-control-inline">
+            <option value="">None</option>
+            <option *ngFor="let category of categories">
+                {{category}}
+            </option>
+        </select>
+      </div> -->
+      <!-- [@rowHighlight]="getRowState(product.category)" -->
+      <div *ngFor="let product of products" 
+      class="card m-1 p-1 bg-light"
+      >
         <h4>
           {{product.name}}
           <span class="badge badge-pill text-bg-primary float-end">

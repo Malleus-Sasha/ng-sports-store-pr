@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { HighlightTrigger } from './animations/products.animations';
 
 @Component({
   selector: 'app-root',
   template: `
     <router-outlet />
   `,
-  styles: []
+  styles: [],
+  animations:[HighlightTrigger]
 })
-export class AppComponent {
-  title = 'ng-sports-store-pr1';
-}
+export class AppComponent {}

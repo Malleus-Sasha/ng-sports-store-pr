@@ -61,4 +61,11 @@ export class StoreComponent {
     this.cartService.addLine(product);
     this.router.navigateByUrl('/cart');
   }
+
+  highlightCategory: string = '';
+
+  // getRowState(category=''): string {
+  //   return this.highlightCategory == '' ? '' :
+  //     this.highlightCategory == category ? 'selected' : 'notselected';
+  // }
 } 

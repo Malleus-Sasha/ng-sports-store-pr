@@ -28,7 +28,7 @@
     </select>
   </label>
 
-    <label>
+  <label>
     Category Filter:
     <select [(ngModel)]="categoryFilter">
       <option selected value="">None</option>
@@ -37,6 +37,14 @@
       <option>Chess</option>
     </select>
   </label>
+  |:
+  <label>Category</label>
+  <select [(ngModel)]="highlightCategory" class="form-control-inline">
+      <option value="">None</option>
+      <option *ngFor="let category of categories">
+          {{category}}
+      </option>
+  </select>
 </div>
 
 <app-discount-editor></app-discount-editor>
@@ -89,7 +97,7 @@
     appPaAttr="bg-warning"
     [pa-product]="product"
     (pa-category)="selectedProduct=$event">
-    {{product.description}}
+    <span [@rowHighlight]="getRowState(product.category)" class="description">{{product.description}}</span>
     <button class="btn btn-success btn-sm float-end" (click)="addProduct(product.id)">Add To Cart</button>
 
     <!-- [routerLink]="['form', 'edit', product.id, { name: product.name, category: product.category, price: product.price}]"  -->
